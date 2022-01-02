@@ -2,6 +2,10 @@
 from banjo.urls import route_get, route_post
 from app.models import Person
 
+@route_get('')
+def index(params):
+    return {'index': 'Welcome to the CS10 Email Directory!'}
+
 @route_post('add_person', args={'name': str, 'email_address': str})
 def add_person(params):
     new_person = Person.from_dict(params)
